@@ -1,0 +1,38 @@
+@startuml
+
+
+left to right direction
+
+skinparam componentStyle uml1
+
+node "<<Android phone>>" as ph {
+    node "<<Operating System Android>" {
+        node "<<Application>>" {
+            component [UI of the application] as ui
+        }
+    }
+}
+
+
+node "<<Android Application>>" as app {
+component [SystemController] as syscontr
+component [UserService] as userserv
+
+}
+
+ui --> syscontr
+
+syscontr <-- userserv
+
+
+node "<<Database Server>>" as servdb {
+	
+	    node "<<Database Server PostgreSQL>>" as db {
+	      database PostgreSQL as dbcomp
+	    
+	}
+}
+
+dbcomp <-- userserv
+
+@enduml
